@@ -115,3 +115,29 @@ No clustering scheme can achieve all three of:
   - Visualize high dimensional data
   - Reduce noise
   - Make other algorithms(regression, classification) work better because fewer inputs(eigenfaces)
+
+
+
+## Feature Transformation
+
+> The problem of pre-processing a set of feature to create a new (more compact ) feature set while retaining as much (relevant, useful) information as possible.
+
+
+
+### Independent Component Analysis
+
+- PCA - Correlation, maximize variance => reconstruction
+- ICA - independence, transform `xi` to `yi` such that all `yi` are mutually independent and mutual information between all `x` and `y` is as high as possible.
+- Blind Source Separation(BSS)
+
+### Alternatives
+
+- RCA(Random Component Analysis)
+
+  - Generates random directions
+
+- LDA(Linear Discriminant Analysis)
+
+  - Find a projection that discriminates based on the label
+
+  ![Feature Transformation](feature-transformation.png)
