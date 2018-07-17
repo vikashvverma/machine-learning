@@ -632,3 +632,50 @@ Here is how to visualize this approach:
 ### Specificity (not Precision)
 
 > Of all the healthy people how many did we diagnose healthy
+
+# Sensitivity and Specificity
+
+Although similar, *sensitivity* and *specificity* are not the same as *precision* and *recall*. Here are the definitions:
+
+In the cancer example, sensitivity and specificity are the following:
+
+- Sensitivity: Of all the people **with** cancer, how many were correctly diagnosed?
+- Specificity: Of all the people **without** cancer, how many were correctly diagnosed?
+
+And precision and recall are the following:
+
+- Recall: Of all the people who **have cancer**, how many did **we diagnose** as having cancer?
+- Precision: Of all the people **we diagnosed** with cancer, how many actually **had cancer**?
+
+From here we can see that Sensitivity is Recall, and the other two are not the same thing.
+
+Trust me, we also have a hard time remembering which one is which, so here's a little trick. If you remember from Luis's Evaluation Metrics section, here is the [confusion matrix](https://classroom.udacity.com/nanodegrees/nd009-InMA2/parts/48128b20-ebca-4cfc-a25f-7156557a4ef5/modules/07527e23-347e-4fd8-b78f-6879d6d54e2d/lessons/59da07ce-6010-455e-be9a-b61d8f463f92/concepts/-%20[Confusion%20Matrix](https://classroom.udacity.com/nanodegrees/nd101/parts/73a7fe8e-4354-4362-939d-a8bf2bae870d/modules/e6a4e4a1-98a9-4afe-a744-7ae6a59c01b8/lessons/9ac722df-8191-44df-b7f5-ef1732b2d053/concepts/2034dd12-8ffc-4753-b8f4-c6042487ea5d):
+
+[![img](https://d17h27t6h515a5.cloudfront.net/topher/2017/November/5a176055_confusion-matrix/confusion-matrix.png)](https://classroom.udacity.com/nanodegrees/nd009-InMA2/parts/48128b20-ebca-4cfc-a25f-7156557a4ef5/modules/07527e23-347e-4fd8-b78f-6879d6d54e2d/lessons/59da07ce-6010-455e-be9a-b61d8f463f92/concepts/c225888e-8e82-4020-a641-acdda4008fa5#)
+
+Now, sensitivity and specificity are the rows of this matrix. More specifically, if we label
+
+- TP: (True Positives) Sick people that we **correctly** diagnosed as sick.
+- TN: (True Negatives) Healthy people that we **correctly** diagnosed as healthy.
+- FP: (False Positives) Healthy people that we **incorrectly** diagnosed as sick.
+- FN: (False Negatives) Sick people that we **incorrectly** diagnosed as healthy.
+
+then:
+
+Sensitivity = {TP}/{TP + FN}=TP+FNTP
+
+and
+
+Specificity = {TN}/{TN + FP}=TN+FPTN.
+
+[![Sensitivity and Specificity](https://d17h27t6h515a5.cloudfront.net/topher/2017/November/5a17631e_sensitivity-specificity/sensitivity-specificity.png)Sensitivity and Specificity](https://classroom.udacity.com/nanodegrees/nd009-InMA2/parts/48128b20-ebca-4cfc-a25f-7156557a4ef5/modules/07527e23-347e-4fd8-b78f-6879d6d54e2d/lessons/59da07ce-6010-455e-be9a-b61d8f463f92/concepts/c225888e-8e82-4020-a641-acdda4008fa5#)
+
+And precision and recall are the top row and the left column of the matrix:
+
+Recall = {TP}/{TP + FN}=TP+FNTP
+
+and
+
+Precision = {TP}/{TP + FP}=TP+FPTP.
+
+[![Precision and Recall](https://d17h27t6h515a5.cloudfront.net/topher/2017/November/5a176544_precision-recall/precision-recall.png)Precision and Recall](https://classroom.udacity.com/nanodegrees/nd009-InMA2/parts/48128b20-ebca-4cfc-a25f-7156557a4ef5/modules/07527e23-347e-4fd8-b78f-6879d6d54e2d/lessons/59da07ce-6010-455e-be9a-b61d8f463f92/concepts/c225888e-8e82-4020-a641-acdda4008fa5#)
