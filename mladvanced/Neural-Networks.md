@@ -624,3 +624,11 @@ Here is how to visualize this approach:
 - Check out this [repository](https://github.com/alexisbcook/ResNetCAM-keras) that uses a CNN for object localization.
 - Watch this [video demonstration](https://www.youtube.com/watch?v=fZvOy0VXWAI) of object localization with a CNN.
 - Check out this [repository](https://github.com/alexisbcook/keras_transfer_cifar10) that uses visualization techniques to better understand bottleneck features.
+
+### Sensitivity(Recall)
+
+>  Of all the sick people, how many did we diagnose sick
+
+### Specificity (not Precision)
+
+> Of all the healthy people how many did we diagnose healthy
