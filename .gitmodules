@@ -1,0 +1,3 @@
+[submodule "mladvanced/Project/dog-project"]
+	path = mladvanced/Project/dog-project
+	url = https://github.com/udacity/dog-project.git

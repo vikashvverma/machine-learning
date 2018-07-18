@@ -679,3 +679,26 @@ and
 Precision = {TP}/{TP + FP}=TP+FPTP.
 
 [![Precision and Recall](https://d17h27t6h515a5.cloudfront.net/topher/2017/November/5a176544_precision-recall/precision-recall.png)Precision and Recall](https://classroom.udacity.com/nanodegrees/nd009-InMA2/parts/48128b20-ebca-4cfc-a25f-7156557a4ef5/modules/07527e23-347e-4fd8-b78f-6879d6d54e2d/lessons/59da07ce-6010-455e-be9a-b61d8f463f92/concepts/c225888e-8e82-4020-a641-acdda4008fa5#)
+
+### ROC Curve
+
+### Confusion Matrix
+
+- False Positive - Type 1 Error
+- False Negative - Type 2 Error
+
+# Useful Resources
+
+[![img](https://d17h27t6h515a5.cloudfront.net/topher/2017/November/5a178393_nature/nature.png)](https://classroom.udacity.com/nanodegrees/nd009-InMA2/parts/48128b20-ebca-4cfc-a25f-7156557a4ef5/modules/07527e23-347e-4fd8-b78f-6879d6d54e2d/lessons/59da07ce-6010-455e-be9a-b61d8f463f92/concepts/23124cbb-77e8-4f8c-aaf4-c27b809c82ea#)
+
+Here's our publication in [Nature](https://www.nature.com/articles/nature21056.epdf?author_access_token=8oxIcYWf5UNrNpHsUHd2StRgN0jAjWel9jnR3ZoTv0NXpMHRAJy8Qn10ys2O4tuPakXos4UhQAFZ750CsBNMMsISFHIKinKDMKjShCpHIlYPYUHhNzkn6pSnOCt0Ftf6).
+
+Other articles about our work:
+
+- [Fortune Magazine](http://fortune.com/2017/01/26/stanford-ai-skin-cancer/)
+- [Bloomberg](https://www.bloomberg.com/news/articles/2017-06-29/diagnosing-skin-cancer-with-google-images)
+- [BBC](http://www.bbc.com/news/health-38717928)
+- [Wall Street Journal](https://www.wsj.com/articles/computers-turn-medical-sleuths-and-identify-skin-cancer-1486740634?emailToken=JRrzcPt+aXiegNA9bcw301gwc7UFEfTMWk7NKjXPN0TNv3XR5Pmlyrgph8DyqGWjAEd26tYY7mAuACbSgWwvV8aXkLNl1A74KycC8smailE=)
+- [Forbes](https://www.forbes.com/sites/forbestechcouncil/2017/09/27/what-can-computer-vision-do-in-the-palm-of-your-hand/#4d2c686847a7)
+- [Scientific American](https://www.scientificamerican.com/article/deep-learning-networks-rival-human-vision1/)
+
