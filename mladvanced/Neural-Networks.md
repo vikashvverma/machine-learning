@@ -6,16 +6,10 @@
 
 - MLP: Multi Layer Perceptrons
 - CNN: Convolutional Neural Network
+- **y**: Actual output
+- <img style="float: left; height: 25px;" src="C:/Users/VKV/exp/github/mlfoundation/ml/mladvanced/images/y-hat.png"/>: Predicted output
 
 ## Neural Networks
-
-
-
-### Abbreviations
-
-- **y**: Actual output
-- <img style="float: left; height: 25px;" src="./images/y-hat.png"/>: Predicted output
-
 
 
 ### Basics
@@ -649,7 +643,7 @@ And precision and recall are the following:
 
 From here we can see that Sensitivity is Recall, and the other two are not the same thing.
 
-Trust me, we also have a hard time remembering which one is which, so here's a little trick. If you remember from Luis's Evaluation Metrics section, here is the [confusion matrix](https://classroom.udacity.com/nanodegrees/nd009-InMA2/parts/48128b20-ebca-4cfc-a25f-7156557a4ef5/modules/07527e23-347e-4fd8-b78f-6879d6d54e2d/lessons/59da07ce-6010-455e-be9a-b61d8f463f92/concepts/-%20[Confusion%20Matrix](https://classroom.udacity.com/nanodegrees/nd101/parts/73a7fe8e-4354-4362-939d-a8bf2bae870d/modules/e6a4e4a1-98a9-4afe-a744-7ae6a59c01b8/lessons/9ac722df-8191-44df-b7f5-ef1732b2d053/concepts/2034dd12-8ffc-4753-b8f4-c6042487ea5d):
+Trust me, we also have a hard time remembering which one is which, so here's a little trick. If you remember from Luis's Evaluation Metrics section, here is the [confusion matrix](https://classroom.udacity.com/nanodegrees/nd009-InMA2/parts/48128b20-ebca-4cfc-a25f-7156557a4ef5/modules/07527e23-347e-4fd8-b78f-6879d6d54e2d/lessons/59da07ce-6010-455e-be9a-b61d8f463f92/concepts/-%20):
 
 [![img](https://d17h27t6h515a5.cloudfront.net/topher/2017/November/5a176055_confusion-matrix/confusion-matrix.png)](https://classroom.udacity.com/nanodegrees/nd009-InMA2/parts/48128b20-ebca-4cfc-a25f-7156557a4ef5/modules/07527e23-347e-4fd8-b78f-6879d6d54e2d/lessons/59da07ce-6010-455e-be9a-b61d8f463f92/concepts/c225888e-8e82-4020-a641-acdda4008fa5#)
 
@@ -691,9 +685,9 @@ Precision = {TP}/{TP + FP}=TP+FPTP.
 
 [![img](https://d17h27t6h515a5.cloudfront.net/topher/2017/November/5a178393_nature/nature.png)](https://classroom.udacity.com/nanodegrees/nd009-InMA2/parts/48128b20-ebca-4cfc-a25f-7156557a4ef5/modules/07527e23-347e-4fd8-b78f-6879d6d54e2d/lessons/59da07ce-6010-455e-be9a-b61d8f463f92/concepts/23124cbb-77e8-4f8c-aaf4-c27b809c82ea#)
 
-Here's our publication in [Nature](https://www.nature.com/articles/nature21056.epdf?author_access_token=8oxIcYWf5UNrNpHsUHd2StRgN0jAjWel9jnR3ZoTv0NXpMHRAJy8Qn10ys2O4tuPakXos4UhQAFZ750CsBNMMsISFHIKinKDMKjShCpHIlYPYUHhNzkn6pSnOCt0Ftf6).
+Here's the publication in [Nature](https://www.nature.com/articles/nature21056.epdf?author_access_token=8oxIcYWf5UNrNpHsUHd2StRgN0jAjWel9jnR3ZoTv0NXpMHRAJy8Qn10ys2O4tuPakXos4UhQAFZ750CsBNMMsISFHIKinKDMKjShCpHIlYPYUHhNzkn6pSnOCt0Ftf6).
 
-Other articles about our work:
+Other articles:
 
 - [Fortune Magazine](http://fortune.com/2017/01/26/stanford-ai-skin-cancer/)
 - [Bloomberg](https://www.bloomberg.com/news/articles/2017-06-29/diagnosing-skin-cancer-with-google-images)
