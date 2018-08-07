@@ -834,3 +834,175 @@ The pseudo code for (first-visit) constant-α MC control can be found below. (*F
 
 
 
+![TD-Prediction](./images/td-prediction.png)
+
+
+
+### Implementation: TD(0)
+
+The pseudo code for TD(0) (or one-step TD) can be found below.
+
+[![img](https://d17h27t6h515a5.cloudfront.net/topher/2017/October/59dfc20c_td-prediction/td-prediction.png)](https://classroom.udacity.com/nanodegrees/nd009-InMA2/parts/d7ec70b5-74d9-4749-93a7-0d6dc7aa4162/modules/734d40e7-acd2-472f-8864-3a8126cb6754/lessons/d2de57a0-cd89-40bd-b87f-ec0298b425cf/concepts/76343403-fafe-4634-ae2d-6484b233e0f9#)
+
+TD(0) is **guaranteed to converge** to the true state-value function, as long as the step-size parameter α is sufficiently small. If you recall, this was also the case for constant-α MC prediction. However, TD(0) has some nice advantages:
+
+- Whereas MC prediction must wait until the end of an episode to update the value function estimate, TD prediction methods update the value function after every time step. Similarly, TD prediction methods work for continuous and episodic tasks, while MC prediction can only be applied to episodic tasks.
+- In practice, TD prediction converges faster than MC prediction. (*That said, no one has yet been able to prove this, and it remains an open problem.*) You are encouraged to take the time to check this for yourself in your implementations! For an example of how to run this kind of analysis, check out Example 6.2 in the [textbook](http://go.udacity.com/rl-textbook).
+
+### TD Control
+
+![TDC](./images/sarsa0.png)
+
+
+
+**Implementation: Sarsa(0)**
+
+The pseudo code for Sarsa (or Sarsa(0)) can be found below.
+
+[![img](https://d17h27t6h515a5.cloudfront.net/topher/2017/October/59dfd2f8_sarsa/sarsa.png)](https://classroom.udacity.com/nanodegrees/nd009-InMA2/parts/d7ec70b5-74d9-4749-93a7-0d6dc7aa4162/modules/734d40e7-acd2-472f-8864-3a8126cb6754/lessons/d2de57a0-cd89-40bd-b87f-ec0298b425cf/concepts/f27a2426-3620-43a2-8284-f3bc476634e0#)
+
+Sarsa(0) is **guaranteed to converge** to the optimal action-value function, as long as the step-size parameter α is sufficiently small, and the **Greedy in the Limit with Infinite Exploration (GLIE)** conditions are met. The GLIE conditions were introduced in the previous lesson, when we learned about MC control. Although there are many ways to satisfy the GLIE conditions, one method involves gradually decaying the value of ϵ when constructing ϵ-greedy policies.
+
+In particular, let \epsilon_iϵi correspond to the ii-th time step. Then, if we set ϵ_i such that:
+
+- ϵ_i>0 for all time steps ii, and
+- ϵi decays to zero in the limit as the time step ii approaches infinity (that is, limi→∞ϵ_i=0),
+
+then the algorithm is guaranteed to yield a good estimate for q_*q∗, as long as we run the algorithm for long enough. A corresponding optimal policy \pi_*π∗ can then be quickly obtained by setting 
+$$
+\pi_*(s) = \arg\max_{a\in\mathcal{A}(s)} q_*(s, a)
+$$
+for all s∈S.
+
+
+
+### TD Control: Sarsamax(Q-Learning)
+
+[research paper](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.80.7501&rep=rep1&type=pdf) that proves that Sarsamax (or *Q*-learning) converges.
+
+
+
+![Sarsamax](./images/sarsamax.png)
+
+
+
+![SarsaVsSarsaMax](./images/sarsa-vs-sarsamax.png)
+
+
+
+**Implementation: Sarsamax**
+
+The pseudo code for Sarsamax (or *Q*-learning) can be found below.
+
+[![img](https://d17h27t6h515a5.cloudfront.net/topher/2017/October/59dff721_sarsamax/sarsamax.png)](https://classroom.udacity.com/nanodegrees/nd009-InMA2/parts/d7ec70b5-74d9-4749-93a7-0d6dc7aa4162/modules/734d40e7-acd2-472f-8864-3a8126cb6754/lessons/d2de57a0-cd89-40bd-b87f-ec0298b425cf/concepts/453aaf31-cb5b-43e4-b64f-b87ff88dff65#)
+
+Sarsamax is **guaranteed to converge** under the same conditions that guarantee convergence of Sarsa.
+
+
+
+### TD Control: Expected Sarsa
+
+![ES](./images/expected-sarsa.png)
+
+
+
+**Implementation: Expected Sarsa**
+
+The pseudocode for Expected Sarsa can be found below.
+
+![img](https://d17h27t6h515a5.cloudfront.net/topher/2017/October/59dffa3d_expected-sarsa/expected-sarsa.png)
+
+Expected Sarsa is **guaranteed to converge** under the same conditions that guarantee convergence of Sarsa and Sarsamax.
+
+Remember that **theoretically**, the as long as the step-size parameter \alphaα is sufficiently small, and the **Greedy in the Limit with Infinite Exploration (GLIE)** conditions are met, the agent is guaranteed to eventually discover the optimal action-value function (and an associated optimal policy). 
+
+
+
+### Analyzing Performance
+
+
+
+All of the TD control algorithms we have examined (Sarsa, Sarsamax, Expected Sarsa) converge to the optimal action-value function q_*q∗ (and so yield the optimal policy \pi_*π∗) if (1) the value of \epsilonϵ decays in accordance with the GLIE conditions, and (2) the step-size parameter \alphaα is sufficiently small.
+
+The differences between these algorithms are summarized below:
+
+- Sarsa and Expected Sarsa are both **on-policy** TD control algorithms. In this case, the same (\epsilonϵ-greedy) policy that is evaluated and improved is also used to select actions.
+- Sarsamax is an **off-policy** method, where the (greedy) policy that is evaluated and improved is different from the (\epsilonϵ-greedy) policy that is used to select actions.
+- On-policy TD control methods (like Expected Sarsa and Sarsa) have better online performance than off-policy TD control methods (like Sarsamax).
+- Expected Sarsa generally achieves better performance than Sarsa.
+
+If you would like to learn more, you are encouraged to read Chapter 6 of the [textbook](http://go.udacity.com/rl-textbook) (especially sections 6.4-6.6).
+
+As an optional exercise to deepen your understanding, you are encouraged to reproduce Figure 6.4. (Note that this exercise is optional!)
+
+![img](https://d17h27t6h515a5.cloudfront.net/topher/2017/December/5a36bc5a_screen-shot-2017-12-17-at-12.49.34-pm/screen-shot-2017-12-17-at-12.49.34-pm.png)
+
+The figure shows the performance of Sarsa and Q-learning on the cliff walking environment for constant ϵ=0.1. As described in the textbook, in this case,
+
+- Q-learning achieves worse online performance (where the agent collects less reward on average in each episode), but learns the optimal policy, and
+- Sarsa achieves better online performance, but learns a sub-optimal "safe" policy.
+
+
+
+### Temporal Difference: Summary
+
+[![img](https://d17h27t6h515a5.cloudfront.net/topher/2017/October/59e629d0_screen-shot-2017-10-17-at-11.02.44-am/screen-shot-2017-10-17-at-11.02.44-am.png)The cliff-walking task (Sutton and Barto, 2017)](https://classroom.udacity.com/nanodegrees/nd009-InMA2/parts/d7ec70b5-74d9-4749-93a7-0d6dc7aa4162/modules/734d40e7-acd2-472f-8864-3a8126cb6754/lessons/d2de57a0-cd89-40bd-b87f-ec0298b425cf/concepts/7d2dafe6-e522-4a8d-beb0-e9dd6eadddfc#)
+
+
+
+**TD Prediction: TD(0)**
+
+------
+
+- Whereas Monte Carlo (MC) prediction methods must wait until the end of an episode to update the value function estimate, temporal-difference (TD) methods update the value function after every time step.
+- For any fixed policy, **one-step TD** (or **TD(0)**) is guaranteed to converge to the true state-value function, as long as the step-size parameter \alphaα is sufficiently small.
+- In practice, TD prediction converges faster than MC prediction.
+
+[![img](https://d17h27t6h515a5.cloudfront.net/topher/2017/October/59dfc20c_td-prediction/td-prediction.png)](https://classroom.udacity.com/nanodegrees/nd009-InMA2/parts/d7ec70b5-74d9-4749-93a7-0d6dc7aa4162/modules/734d40e7-acd2-472f-8864-3a8126cb6754/lessons/d2de57a0-cd89-40bd-b87f-ec0298b425cf/concepts/7d2dafe6-e522-4a8d-beb0-e9dd6eadddfc#)
+
+
+
+**TD Prediction: Action Values**
+
+------
+
+- (In this concept, we discussed a TD prediction algorithm for estimating action values. Similar to TD(0), this algorithm is guaranteed to converge to the true action-value function, as long as the step-size parameter \alphaα is sufficiently small.)
+
+
+
+**TD Control: Sarsa(0)**
+
+------
+
+- **Sarsa(0)** (or **Sarsa**) is an on-policy TD control method. It is guaranteed to converge to the optimal action-value function q_*q∗, as long as the step-size parameter \alphaα is sufficiently small and \epsilonϵ is chosen to satisfy the **Greedy in the Limit with Infinite Exploration (GLIE)** conditions.
+
+[![img](https://d17h27t6h515a5.cloudfront.net/topher/2017/October/59dfd2f8_sarsa/sarsa.png)](https://classroom.udacity.com/nanodegrees/nd009-InMA2/parts/d7ec70b5-74d9-4749-93a7-0d6dc7aa4162/modules/734d40e7-acd2-472f-8864-3a8126cb6754/lessons/d2de57a0-cd89-40bd-b87f-ec0298b425cf/concepts/7d2dafe6-e522-4a8d-beb0-e9dd6eadddfc#)
+
+
+
+**TD Control: Sarsamax**
+
+------
+
+- **Sarsamax** (or **Q-Learning**) is an off-policy TD control method. It is guaranteed to converge to the optimal action value function q_*q∗, under the same conditions that guarantee convergence of the Sarsa control algorithm.
+
+[![img](https://d17h27t6h515a5.cloudfront.net/topher/2017/October/59dff721_sarsamax/sarsamax.png)](https://classroom.udacity.com/nanodegrees/nd009-InMA2/parts/d7ec70b5-74d9-4749-93a7-0d6dc7aa4162/modules/734d40e7-acd2-472f-8864-3a8126cb6754/lessons/d2de57a0-cd89-40bd-b87f-ec0298b425cf/concepts/7d2dafe6-e522-4a8d-beb0-e9dd6eadddfc#)
+
+
+
+**TD Control: Expected Sarsa**
+
+------
+
+- **Expected Sarsa** is an on-policy TD control method. It is guaranteed to converge to the optimal action value function q_*q∗, under the same conditions that guarantee convergence of Sarsa and Sarsamax.
+
+[![img](https://d17h27t6h515a5.cloudfront.net/topher/2017/October/59dffa3d_expected-sarsa/expected-sarsa.png)](https://classroom.udacity.com/nanodegrees/nd009-InMA2/parts/d7ec70b5-74d9-4749-93a7-0d6dc7aa4162/modules/734d40e7-acd2-472f-8864-3a8126cb6754/lessons/d2de57a0-cd89-40bd-b87f-ec0298b425cf/concepts/7d2dafe6-e522-4a8d-beb0-e9dd6eadddfc#)
+
+
+
+**Analyzing Performance**
+
+------
+
+- On-policy TD control methods (like Expected Sarsa and Sarsa) have better online performance than off-policy TD control methods (like Q-learning).
+- Expected Sarsa generally achieves better performance than Sarsa.
