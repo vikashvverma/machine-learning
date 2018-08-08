@@ -1006,3 +1006,412 @@ The figure shows the performance of Sarsa and Q-learning on the cliff walking en
 
 - On-policy TD control methods (like Expected Sarsa and Sarsa) have better online performance than off-policy TD control methods (like Q-learning).
 - Expected Sarsa generally achieves better performance than Sarsa.
+
+
+
+## Deep Reinforcement Learning
+
+![DRL1](./images/rl-s-1.png)
+
+
+
+![RLF](./images/rl-f.png)
+
+![RLF](./images/rl-model.png)
+
+
+
+![DRL](./images/drl.png)
+
+
+
+### Discrete vs Continuous Spaces
+
+**Discrete Spaces**
+
+- States : 
+
+  ​
+  $$
+  s\in\mathcal{S_0 , S_1, ..., Sn}
+  $$
+
+- Actions: 
+
+$$
+a\in\mathcal{A_0, A_1, ..., An}
+$$
+
+![DR](./images/discrete-rep.png)
+
+
+
+### Discretization
+
+
+
+![DS](./images/discretization.png)
+
+
+
+
+
+![NUD](./images/nu-discretization.png)
+
+
+
+### Tile Coding
+
+
+
+### Coarse Coding
+
+
+
+![CC](./images/coarse-coding.png)
+
+
+
+### Function Approximation
+
+![FA](./images/fa.png)
+
+
+
+![FV](./images/feature-vector.png)
+
+![DP](./images/dot-product.png)
+
+
+
+### Linear Function Approximation
+
+![RLGD](./images/rl-gradient-descent.png)
+
+
+
+![GDI](./images/gd-intuition.png)
+
+
+
+![AVA](./images/action-vector-approximation.png)
+
+
+
+### kernel Functions
+
+
+
+![KF](./images/kernel-function.png)
+
+
+
+![RBF](./images/radial-basis-function.png)
+
+
+
+### Non-Linear Function Approximation
+
+![NLFA](./images/non-linear-function-approximation.png)
+
+
+
+![NLFAU](./images/non-linear-function-approximation-update.png)
+
+
+
+
+
+## Deep Q-Learning
+
+
+
+![DQL](./images/deep-q-learning.png)
+
+
+
+### Neural Nets as Value Functions
+
+
+
+![LNNP](./images/lnnp.png)
+
+
+
+![AVF](./images/action-value-function.png)
+
+
+
+![MCL](./images/mc-learning.png)
+
+
+
+![MCFA](./images/mlfa.png)
+
+
+
+### Temporal Difference Learning
+
+![TDL](./images/td-learning.png)
+
+
+
+![TDCFAE](./images/td-cfa-e.png)
+
+
+
+![TDCFAC](./images/tdc-fa-c.png)
+
+
+
+### Q-Learning
+
+
+
+![QLE](./images/q-l-episodic.png)
+
+
+
+
+
+![QLC](./images/q-l-continuous.png)
+
+
+
+![SvsQ](./images/sarsa-vs-1-l.png)
+
+
+
+![OPA](./images/off-policy-advantages.png)
+
+
+
+**Note**: One drawback of both SARSA & Q-Learning, since they are TD approaches, is that they may not converge on the global optimum when using non-linear function approximation.
+
+**Readings**
+
+- Rahimi & Recht, 2007. [Random Features for Large-Scale Kernel Machines](https://classroom.udacity.com/nanodegrees/nd009-InMA2/parts/d7ec70b5-74d9-4749-93a7-0d6dc7aa4162/modules/b07f69ce-6a40-40fd-8865-2c956ef1454a/lessons/2faec296-1a78-4393-9aea-2b91310713ed/concepts/www.robots.ox.ac.uk/~vgg/rg/papers/randomfeatures.pdf).
+  Presents an efficient approximation to RBF-like kernel transforms.
+
+### Deep Q-Netowrk
+
+
+
+### Experience Replay
+
+![RB](./images/replay-buffer.png)
+
+
+
+**Readings**
+
+- Long-Ji Lin, 1993. [Reinforcement learning for robots using neural networks](https://pdfs.semanticscholar.org/54c4/cf3a8168c1b70f91cf78a3dc98b671935492.pdf).
+
+
+
+### Fixed Q-Targets
+
+
+
+Mathematically Incorrect
+
+![FQT](./images/fixed-q.png)
+
+
+
+![MT](./images/moving-target.png)
+
+
+
+![MD](./images/moving-donkey.png)
+
+![MDU](./images/moving-donkey-u.png)
+
+
+
+![FD](./images/fixed-target.png)
+
+
+
+Ever wondered how this would look in real life? See: [Carrot Stick Riding](https://www.youtube.com/watch?v=-PVFBGN_zoM).
+
+
+
+### Deep Q-Learning Algorithm
+
+
+
+![DQLA](./images/deep-q-learning-algo.png)
+
+
+
+**Readings**
+
+- Mnih et al., 2015. [Human-level control through deep reinforcement learning](https://storage.googleapis.com/deepmind-media/dqn/DQNNaturePaper.pdf). (DQN paper)
+- He et al., 2015. [Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification](https://arxiv.org/abs/1502.01852). (weight initialization)
+
+
+
+### DQN Improvements
+
+- Double DQN
+- Prioritized Replay
+- Dueling Networks
+
+
+
+![QO](./images/q-overestimation.png)
+
+
+
+![DQN](./images/dqn.png)
+
+
+
+![PER](./images/per.png)
+
+
+
+![DN](./images/dueling-network.png)
+
+
+
+**Readings**
+
+- Thrun & Schwartz, 1993. [Issues in Using Function Approximation for Reinforcement Learning](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.73.3097). (overestimation of Q-values)
+- van Hasselt et al., 2015. [Deep Reinforcement Learning with Double Q-Learning](https://arxiv.org/abs/1509.06461).
+- Schaul et al., 2016. [Prioritized Experience Replay](https://arxiv.org/abs/1511.05952).
+- Wang et al., 2015. [Dueling Network Architectures for Deep Reinforcement Learning](https://arxiv.org/abs/1511.06581).
+- Hausknecht & Stone, 2015. [Deep Recurrent Q-Learning for Partially Observable MDPs](https://arxiv.org/abs/1507.06527).
+
+
+
+### Implementing Deep Q-Learning
+
+![img](https://d17h27t6h515a5.cloudfront.net/topher/2018/January/5a66800a_atari-network/atari-network.png)
+
+Check out Python framework implementations:
+
+- (Keras) <https://keon.io/deep-q-learning/>
+- (PyTorch) <http://pytorch.org/tutorials/intermediate/reinforcement_q_learning.html>
+
+
+
+
+
+## Policy-Based Methods
+
+**Why**:
+
+- Simplicity
+- Stochastic Policies
+- Continuous Action Space
+
+![S](./images/simplicity.png)
+
+
+
+![PT](./images/policy-type.png)
+
+
+
+> Value based approach tends to learn a deterministic or near deterministic policy whereas a policy based approach situation might learn the desired stochastic policy.
+
+
+
+### Policy function Approximation
+
+
+
+![PFA](./images/pfa.png)
+
+
+
+![LFSP](./images/lfs.png)
+
+
+
+![LFSP](./images/lfsp.png)
+
+
+
+![SV](./images/state-values.png)
+
+
+
+![OF](./images/objective-functions.png)
+
+
+
+### Stochastic Policy Search(Hill Climbing)
+
+![SA](./images/steepest-ascent.png)
+
+
+
+![SA](./images/simulated-annealing.png)
+
+
+
+![ANS](./images/adaptive-noise-scaling.png)
+
+
+
+
+
+### Policy Gradients
+
+![PG](./images/policy-gradients.png)
+
+
+
+![FD](./images/finite-differences.png)
+
+
+
+![PGS](./images/policy-gradients-score.png)
+
+
+
+### Monte Carlo Policy Gradients
+
+
+
+![MCPG](./images/mc-pg.png)
+
+
+
+
+
+### Constrained Policy Gradients
+
+
+
+![KLD](./images/kl-divergence.png)
+
+
+
+![KLC](./images/kl-divergence-constraint.png)
+
+
+
+
+
+## Actor-Critic Methods
+
+
+
+![AC](./images/actor-critic.png)
+
+
+
+**Advantage Function**
+
+
+
+**Actor-Critic Advantage Function**
+
+
+
+**Research Areas**
+
