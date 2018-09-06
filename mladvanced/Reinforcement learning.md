@@ -699,7 +699,6 @@ The pseudo code for (first-visit) constant-α MC control can be found below. (*F
 
 - Methods that evaluate a policy
 
-   
 
   \piπ
 
@@ -714,7 +713,6 @@ The pseudo code for (first-visit) constant-α MC control can be found below. (*F
 
 - There are two types of Monte Carlo (MC) prediction methods (for estimating
 
-   
 
   v_\pivπ
 
@@ -733,7 +731,6 @@ The pseudo code for (first-visit) constant-α MC control can be found below. (*F
 
 - There are two types of MC prediction methods (for estimating
 
-   
 
   q_\piqπ
 
@@ -771,7 +768,6 @@ The pseudo code for (first-visit) constant-α MC control can be found below. (*F
 
 - A policy is
 
-   
 
   \epsilonϵ-greedy
 
@@ -804,7 +800,6 @@ The pseudo code for (first-visit) constant-α MC control can be found below. (*F
 
 - In order for MC control to converge to the optimal policy, the
 
-   
 
   Greedy in the Limit with Infinite Exploration (GLIE)
 
